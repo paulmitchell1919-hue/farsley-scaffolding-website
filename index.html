@@ -90,36 +90,51 @@
         <p>Drop us a message and we'll get back to you within 24 hours.</p>
       </div>
       
-      <form id="contactForm" class="contact-form">
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/xykvvkll" method="POST">
+        <input type="hidden" name="_subject" value="New Farsley Scaffolding website enquiry">
+        <input type="hidden" name="source" value="farsleyscaffolding.co.uk">
+        <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required placeholder="Your full name">
+            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name">
           </div>
           <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+            <label for="phone">Phone <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="Your phone number">
           </div>
         </div>
         <div class="form-group">
-          <label for="email">Email <span class="required">*</span></label>
-          <input type="email" id="email" name="email" required placeholder="your@email.com">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="service">Service Required</label>
+          <select id="service" name="service">
+            <option value="General scaffolding enquiry">General scaffolding enquiry</option>
+            <option value="Domestic scaffolding">Domestic scaffolding</option>
+            <option value="Commercial scaffolding">Commercial scaffolding</option>
+            <option value="Temporary roof">Temporary roof</option>
+            <option value="Emergency scaffolding">Emergency scaffolding</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="message">Tell us about your project <span class="required">*</span></label>
           <textarea id="message" name="message" rows="4" required placeholder="Location, type of work, approximate height, access details..."></textarea>
         </div>
+        <p id="formError" class="form-error" role="alert" aria-live="polite" style="display:none"></p>
         <button type="submit" class="btn btn-primary btn-full">
-          <span class="btn-text">Send Message</span>
+          <span class="btn-text">Send Enquiry</span>
           <span class="btn-loading" style="display:none">Sending…</span>
         </button>
         <p class="form-note">Or call us directly on <a href="tel:07733476448"><strong>07733 476 448</strong></a></p>
       </form>
 
-      <div id="formSuccess" class="form-success" style="display:none">
+      <div id="formSuccess" class="form-success" style="display:none" role="status" aria-live="polite">
         <div class="success-icon">✓</div>
-        <h3>Message Sent!</h3>
-        <p>Thanks for getting in touch. We'll be back to you within 24 hours.</p>
+        <h3>Enquiry Sent</h3>
+        <p>Thanks for getting in touch. We'll call you back as soon as possible.</p>
       </div>
     </section>
 
@@ -147,21 +162,45 @@
   </div>
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = this;
-      const btn = form.querySelector('button[type="submit"]');
-      const btnText = btn.querySelector('.btn-text');
-      const btnLoading = btn.querySelector('.btn-loading');
-      
-      btnText.style.display = 'none';
-      btnLoading.style.display = 'inline';
-      btn.disabled = true;
+    const contactForm = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
 
-      setTimeout(() => {
+    contactForm.addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const form = event.currentTarget;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const buttonText = submitButton.querySelector('.btn-text');
+      const buttonLoading = submitButton.querySelector('.btn-loading');
+
+      formError.style.display = 'none';
+      formError.textContent = '';
+      buttonText.style.display = 'none';
+      buttonLoading.style.display = 'inline';
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) {
+          throw new Error('Formspree rejected the enquiry.');
+        }
+
+        form.reset();
         form.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }, 1000);
+        formSuccess.style.display = 'block';
+      } catch (error) {
+        formError.textContent = 'Sorry, your enquiry could not be sent. Please call 07733 476 448 and we’ll help you directly.';
+        formError.style.display = 'block';
+        buttonText.style.display = 'inline';
+        buttonLoading.style.display = 'none';
+        submitButton.disabled = false;
+      }
     });
   </script>
 

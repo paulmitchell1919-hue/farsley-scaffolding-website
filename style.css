@@ -369,6 +369,7 @@ html { scroll-behavior: smooth; }
 .required { color: var(--red); }
 
 .form-group input,
+.form-group select,
 .form-group textarea {
   width: 100%;
   padding: 12px 14px;
@@ -386,7 +387,37 @@ html { scroll-behavior: smooth; }
   color: #444;
 }
 
+.form-group select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--gold-dim) 50%), linear-gradient(135deg, var(--gold-dim) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.form-group select option {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
+.form-error {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(196, 30, 58, 0.45);
+  border-radius: 10px;
+  background: rgba(196, 30, 58, 0.12);
+  color: #ffb3bf;
+  font-size: 0.88rem;
+}
+
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--gold-dim);
