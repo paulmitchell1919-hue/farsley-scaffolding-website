@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farsley Scaffolding Ltd | Professional Scaffolding Services in Leeds</title>
+  <meta name="description" content="Farsley Scaffolding Ltd — professional scaffolding services across Leeds and West Yorkshire. Contact us today on 07733 476 448.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Scaffold pattern background -->
+  <div class="scaffold-bg" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Scaffold frame icon -->
+            <rect x="5" y="10" width="6" height="45" rx="1" fill="#D4AF37"/>
+            <rect x="49" y="10" width="6" height="45" rx="1" fill="#D4AF37"/>
+            <rect x="5" y="10" width="50" height="5" rx="1" fill="#D4AF37"/>
+            <rect x="5" y="25" width="50" height="4" rx="1" fill="#C41E3A"/>
+            <rect x="5" y="40" width="50" height="4" rx="1" fill="#C41E3A"/>
+            <line x1="11" y1="12" x2="49" y2="27" stroke="#D4AF37" stroke-width="1.5"/>
+            <line x1="49" y1="12" x2="11" y2="27" stroke="#D4AF37" stroke-width="1.5"/>
+            <line x1="11" y1="27" x2="49" y2="42" stroke="#D4AF37" stroke-width="1.5"/>
+            <line x1="49" y1="27" x2="11" y2="42" stroke="#D4AF37" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>Farsley Scaffolding</h1>
+          <span class="tagline">Ltd</span>
+        </div>
+      </div>
+      <a href="tel:07733476448" class="phone-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        07733 476 448
+      </a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="pulse"></span>
+        New Website Coming Soon
+      </div>
+      <h2>Professional Scaffolding Services</h2>
+      <p class="hero-sub">Serving <strong>Leeds</strong> and <strong>West Yorkshire</strong> since 2013</p>
+      <p class="hero-desc">
+        We're building our new online home. In the meantime, get in touch for 
+        <strong>domestic</strong> and <strong>commercial scaffolding</strong> — 
+        from single lifts to full project works.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get a Quote</a>
+        <a href="tel:07733476448" class="btn btn-outline">Call Now</a>
+      </div>
+    </section>
+
+    <!-- Services snapshot -->
+    <section class="services">
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Domestic</h3>
+        <p>Extensions, loft conversions, re-roofs, chimneys &amp; rendering</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Commercial</h3>
+        <p>New builds, refurbishments, temporary roofs &amp; full project scaffolds</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Design &amp; Erect</h3>
+        <p>Full design, erection and dismantle service across West Yorkshire</p>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact" id="contact">
+      <h2>Get in Touch</h2>
+      <p class="contact-sub">Drop us a message and we'll get back to you within 24 hours.</p>
+      
+      <form id="contactForm" class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Message <span class="required">*</span></label>
+          <textarea id="message" name="message" rows="4" required placeholder="Tell us about your project — location, type of work, approximate height, access details..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <span class="btn-text">Send Message</span>
+          <span class="btn-loading" style="display:none">Sending…</span>
+        </button>
+        <p class="form-note">Or call us directly on <a href="tel:07733476448"><strong>07733 476 448</strong></a></p>
+      </form>
+
+      <div id="formSuccess" class="form-success" style="display:none">
+        <div class="success-icon">✓</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for getting in touch. We'll be back to you within 24 hours.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-info">
+        <p><strong>Farsley Scaffolding Ltd</strong></p>
+        <p>Company No. 08455882</p>
+        <p>36 Beech Lees, Farsley, Leeds, LS28 5JZ</p>
+      </div>
+      <div class="footer-contact">
+        <a href="tel:07733476448">📞 07733 476 448</a>
+        <a href="https://www.facebook.com/farsley.scaffolding" target="_blank" rel="noopener">Facebook Page →</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Farsley Scaffolding Ltd. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Simple form handler — will be replaced with proper endpoint
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      const btnText = btn.querySelector('.btn-text');
+      const btnLoading = btn.querySelector('.btn-loading');
+      
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
+      btn.disabled = true;
+
+      // TODO: Replace with actual form submission (Formspree / Zoho / etc.)
+      // For now, show success after a brief delay to simulate
+      setTimeout(() => {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
